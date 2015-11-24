@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.parse.LogInCallback;
 import com.parse.ParseException;
+import com.parse.ParseObject;
 import com.parse.ParseUser;
 
 import java.util.Arrays;
@@ -32,24 +33,24 @@ EditText etEmail, etPass;
 
 
         final String name1  = etEmail.getText().toString();
-        char[] name = name1.toCharArray();
-        int index = Arrays.asList(name).indexOf('@');
-        final String userName = name1.substring(0,index);
 
+
+        final String userName = "Test_user";
         btLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                ParseUser.logInInBackground(name1, etPass.getText().toString(), new LogInCallback() {
+                ParseUser.logInInBackground(etEmail.getText().toString(), etPass.getText().toString(), new LogInCallback() {
                     @Override
                     public void done(ParseUser user, ParseException e) {
-                        if (e!=null){
-                            Toast.makeText(getBaseContext(), "Error",Toast.LENGTH_SHORT).show();
+                        if (user!=null){
+                            Intent intent = new Intent(getBaseContext(), MainActivity.class);
+                            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            intent.putExtra("username",userName);
+                            startActivity(intent);
                         }
                         else{
-                            Intent intent = new Intent(getBaseContext(), MainActivity.class);
-                            //intent.putExtra("username",userName);
-                            startActivity(intent);
+                            Toast.makeText(getBaseContext(), "Error",Toast.LENGTH_SHORT).show();
                         }
                     }
                 });

@@ -40,21 +40,21 @@ public class SignUpActivity extends AppCompatActivity {
                 user.setPassword(etPassword.getText().toString());
                 user.setEmail(etEmail.getText().toString());
 
-                String name1  = etEmail.getText().toString();
-                char[] name = name1.toCharArray();
-                int index = Arrays.asList(name).indexOf('@');
-                final String userName = name1.substring(0,index);
+//                String name1  = etEmail.getText().toString();
+//                char[] name = name1.toCharArray();
+//                int index = Arrays.asList(name).lastIndexOf('@');
+//                final String userName = name1.substring(0,index);
 
 
                 user.signUpInBackground(new SignUpCallback() {
                     @Override
                     public void done(ParseException e) {
-                        if(e!= null){
+                        if (e != null) {
                             Toast.makeText(SignUpActivity.this, "Error", Toast.LENGTH_SHORT).show();
-                        }
-                        else {
-                            Intent intent = new Intent(getBaseContext(),MainActivity.class);
-                      //      intent.putExtra("username", userName );
+                        } else {
+                            Intent intent = new Intent(getBaseContext(), MainActivity.class);
+                            //      intent.putExtra("username", userName );
+                            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                             startActivity(intent);
                         }
                     }
