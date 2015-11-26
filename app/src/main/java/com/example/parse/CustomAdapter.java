@@ -5,9 +5,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.parse.R;
-import com.parse.ParseFile;
-import com.parse.ParseImageView;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseQueryAdapter;
@@ -35,7 +32,7 @@ public class CustomAdapter extends ParseQueryAdapter<ParseObject> {
         super.getItemView(object, v, parent);
 
 
-        TextView timestampView = (TextView) v.findViewById(R.id.timestamp);
+        TextView timestampView = (TextView) v.findViewById(R.id.price);
         timestampView.setText(object.get("LocationName").toString());
         return v;
     }

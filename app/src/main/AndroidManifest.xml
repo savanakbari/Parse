@@ -34,9 +34,7 @@
             android:label="@string/title_activity_main" />
         <activity
             android:name=".OrderSelection"
-            android:label="@string/title_activity_order_selection"
-
-            android:theme="@style/AppTheme.NoActionBar" >
+            android:label="@string/title_activity_order_selection">
         </activity>
     </application>
 

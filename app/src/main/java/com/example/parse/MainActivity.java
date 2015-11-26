@@ -62,7 +62,6 @@ public class MainActivity extends AppCompatActivity {
                 Intent i = new Intent(getBaseContext(),OrderSelection.class);
                 i.putExtra("id_",locationId);
                 startActivity(i);
-                Toast.makeText(getBaseContext(),locationId, Toast.LENGTH_SHORT).show();
 
             }
         });
