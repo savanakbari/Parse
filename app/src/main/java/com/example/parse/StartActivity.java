@@ -10,9 +10,11 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.parse.Parse;
 import com.parse.ParseObject;
+import com.parse.ParseUser;
 
 public class StartActivity extends AppCompatActivity {
     Button sign_in, sign_up;
@@ -32,7 +34,7 @@ public class StartActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                startActivity(new Intent(getBaseContext(),MainActivity.class));
-                //startActivity(new Intent(getBaseContext(), SignInActivity.class));
+               // startActivity(new Intent(getBaseContext(), SignInActivity.class));
             }
         });
 
@@ -51,6 +53,19 @@ public class StartActivity extends AppCompatActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_start, menu);
         return true;
+    }
+
+     @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.exit:
+                this.finish();
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
 

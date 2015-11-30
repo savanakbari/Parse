@@ -40,28 +40,37 @@ public class SignUpActivity extends AppCompatActivity {
                 user.setPassword(etPassword.getText().toString());
                 user.setEmail(etEmail.getText().toString());
 
-//                String name1  = etEmail.getText().toString();
-//                char[] name = name1.toCharArray();
-//                int index = Arrays.asList(name).lastIndexOf('@');
-//                final String userName = name1.substring(0,index);
-
 
                 user.signUpInBackground(new SignUpCallback() {
                     @Override
                     public void done(ParseException e) {
                         if (e != null) {
-                            Toast.makeText(SignUpActivity.this, "Error", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(SignUpActivity.this, parseError(e), Toast.LENGTH_SHORT).show();
+
                         } else {
                             Intent intent = new Intent(getBaseContext(), MainActivity.class);
                             //      intent.putExtra("username", userName );
                             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                             startActivity(intent);
                         }
+
                     }
                 });
+
+
             }
         });
-
+    }
+    private String parseError(ParseException e) {
+        switch (e.getCode()) {
+            case ParseException.PASSWORD_MISSING:
+                return "Enter the password";
+            case ParseException.USERNAME_TAKEN:
+            case ParseException.EMAIL_TAKEN:
+                return "Email already in use";
+            default:
+                return "Error/Try Again";
+        }
 
     }
 

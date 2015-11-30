@@ -21,8 +21,7 @@
 
     <Button
         android:id="@+id/signUp"
-        android:layout_width="120dp
-        "
+        android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:typeface="monospace"
         android:textStyle="bold"

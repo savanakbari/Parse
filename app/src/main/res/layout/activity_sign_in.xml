@@ -4,6 +4,7 @@
     android:orientation="vertical"
     tools:context="com.example.myapp.SignInActivity">
 
+
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -28,7 +29,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text=" Register "
+        android:text=" Log In "
         android:id="@+id/btnSignIn"
         android:textAlignment="center"
         android:textAllCaps="false"

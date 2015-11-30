@@ -50,7 +50,7 @@ EditText etEmail, etPass;
                             startActivity(intent);
                         }
                         else{
-                            Toast.makeText(getBaseContext(), "Error",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getBaseContext(), parseError(e),Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
@@ -62,4 +62,17 @@ EditText etEmail, etPass;
 
     }
 
+    private String parseError(ParseException e){
+        switch(e.getCode()){
+            case ParseException.EMAIL_NOT_FOUND:
+                return  "Email Not found";
+            case ParseException.CONNECTION_FAILED:
+                return "Connection Failed";
+            case ParseException.PASSWORD_MISSING:
+                return "Password Missing";
+            default:
+                return "Error/ Try Again";
+        }
+
+    }
 }
