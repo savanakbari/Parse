@@ -1,26 +1,63 @@
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.parse.PlaceOrderAct"
-    >
+    android:gravity="center"
+    tools:context="com.example.parse.PlaceOrderAct">
 
-   <ImageView
-       android:layout_width="fill_parent"
-       android:layout_height="300dp"
-       android:id="@+id/imgView"
-       android:paddingTop="40dp"/>
-    <TextView
-        android:paddingTop="20dp"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/location"
-        />
-<TextView
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:paddingTop="30dp"
-    android:id="@+id/itemName"/>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/imgView"
+                android:layout_width="fill_parent"
+                android:layout_height="300dp"
+                android:paddingTop="40dp" />
+
+            <TextView
+                android:id="@+id/location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="2dp"
+                android:textAppearance="?android:attr/textAppearanceLarge"/>
+
+            <TextView
+                android:id="@+id/itemName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="2dp"
+                android:textAppearance="?android:attr/textAppearanceLarge"/>
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:layout_marginTop="30dp"
+                android:ems="10"
+                android:text="0"
+                android:id="@+id/quantity"
+                android:hint="Enter Quantity"
+
+                />
+
+            <Button
+                android:layout_marginTop="30dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add to Cart"
+                android:id="@+id/btn"
+                android:layout_gravity="center_horizontal" />
+
+
+        </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>
