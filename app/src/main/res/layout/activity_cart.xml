@@ -9,15 +9,26 @@
 
 
     <TextView
-        android:paddingTop="30dp"
+
         android:id="@+id/cartTxt"
         android:typeface="monospace"
         android:textStyle="bold"
         android:layout_gravity="center_horizontal"
         android:lineSpacingMultiplier="2"
-        android:layout_marginLeft="50dp"
+
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentTop="true" />
+        android:layout_height="wrap_content"
+        />
+    <Button
+        android:id="@+id/btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:typeface="monospace"
+        android:textStyle="bold"
+        android:layout_gravity="center_horizontal"
+
+        android:text="Place Order"
+        android:textAlignment="center"
+        android:textAllCaps="false"/>
 
 </LinearLayout>

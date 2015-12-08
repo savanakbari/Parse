@@ -40,20 +40,28 @@ EditText etEmail, etPass;
             @Override
             public void onClick(View v) {
 
-                ParseUser.logInInBackground(etEmail.getText().toString(), etPass.getText().toString(), new LogInCallback() {
-                    @Override
-                    public void done(ParseUser user, ParseException e) {
-                        if (user!=null){
-                            Intent intent = new Intent(getBaseContext(), MainActivity.class);
-                            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                            intent.putExtra("username",userName);
-                            startActivity(intent);
-                        }
-                        else{
-                            Toast.makeText(getBaseContext(), parseError(e),Toast.LENGTH_SHORT).show();
-                        }
+        ParseUser.logInInBackground(etEmail.getText().toString(), etPass.getText().toString(), new LogInCallback() {
+            @Override
+            public void done(ParseUser user, ParseException e) {
+                if (user!=null){
+                    ParseUser users = ParseUser.getCurrentUser();
+                    String display = users.toString();
+                    Boolean verified = users.getBoolean("emailVerified");
+                    if(verified){
+                        Intent intent = new Intent(getBaseContext(), MainActivity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        intent.putExtra("username",userName);
+                        startActivity(intent);
                     }
-                });
+                    else{
+                        Snackbar.make(findViewById(android.R.id.content), " Please verify your Email",Snackbar.LENGTH_SHORT).show();
+                    }
+                }
+                else{
+                    Snackbar.make(findViewById(android.R.id.content), parseError(e), Snackbar.LENGTH_SHORT).show();
+                }
+            }
+        });
 
 
             }

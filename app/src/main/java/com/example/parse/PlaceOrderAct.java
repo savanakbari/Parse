@@ -60,7 +60,7 @@ public class PlaceOrderAct extends AppCompatActivity {
                 int itemQuantity = Integer.parseInt(quantity.getText().toString());
                 add(itemName_,itemQuantity);
                 int size= map.size();
-                Toast.makeText(getBaseContext(),"Added to Cart : " + itemName_ + " & Quantity :" + itemQuantity  + ":::AND  SIZE IS ::: " + size , Toast.LENGTH_LONG).show();
+                Snackbar.make(findViewById(android.R.id.content),"Added to Cart : " + itemName_ + " & Quantity :" + itemQuantity  + "  ::: AND  SIZE IS ::: " + size ,Snackbar.LENGTH_LONG).show();
             }
         });
 

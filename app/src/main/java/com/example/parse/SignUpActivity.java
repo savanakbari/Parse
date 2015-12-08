@@ -34,7 +34,7 @@ public class SignUpActivity extends AppCompatActivity {
 
         btRegister.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(final View v) {
                 ParseUser user = new ParseUser();
                 user.setUsername(etEmail.getText().toString());
                 user.setPassword(etPassword.getText().toString());
@@ -48,10 +48,12 @@ public class SignUpActivity extends AppCompatActivity {
                             Toast.makeText(SignUpActivity.this, parseError(e), Toast.LENGTH_SHORT).show();
 
                         } else {
-                            Intent intent = new Intent(getBaseContext(), MainActivity.class);
+                            Intent intent = new Intent(getBaseContext(), SignInActivity.class);
                             //      intent.putExtra("username", userName );
                             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                             startActivity(intent);
+
+                            Toast.makeText(getBaseContext(), "Verify email before Logging in", Toast.LENGTH_LONG).show();
                         }
 
                     }
