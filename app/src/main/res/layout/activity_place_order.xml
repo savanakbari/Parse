@@ -55,6 +55,20 @@
                 android:text="Add to Cart"
                 android:id="@+id/btn"
                 android:layout_gravity="center_horizontal" />
+            <Button
+                android:layout_marginTop="30dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Set wallpaper"
+                android:id="@+id/setBtn"
+                android:layout_gravity="center_horizontal" />
+            <Button
+                android:layout_marginTop="30dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Download Image"
+                android:id="@+id/dwld"
+                android:layout_gravity="center_horizontal" />
 
 
         </LinearLayout>
