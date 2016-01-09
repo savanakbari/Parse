@@ -4,6 +4,9 @@
     tools:context="com.example.myapp.SignUpActivity"
     android:orientation="vertical">
 
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
     <EditText
         android:layout_width="match_parent"
@@ -14,7 +17,10 @@
         android:id="@+id/signUpEmail"
         android:layout_gravity="center_horizontal"
         android:hint="E-mail address"/>
-
+    </android.support.design.widget.TextInputLayout>
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -25,7 +31,7 @@
         android:layout_gravity="center_horizontal"
         android:hint="Password"
     />
-
+</android.support.design.widget.TextInputLayout>
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
